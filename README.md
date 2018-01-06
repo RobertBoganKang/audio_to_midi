@@ -54,3 +54,9 @@ Song: You Raise Me Up
 [YouKu](http://v.youku.com/v_show/id_XMzI5NzQyMjUwNA==.html)
 ## Other Info
 This project seems time consuming in calculation not coding (rendering time more than coding) and it is not so useful, I am planning stop developing it.
+### Possible Research Direction
+* Set the weight function in frequency domain to raise the importance of some part of frequencies.
+* Research on MIDI weight parameter value to volumne value to increase the accuracy of model. 
+* Music note combination algorithm could be improved. 
+* We could set the starting point of `MINIMIZE` function as the last value to get the similar value at that state.
+* Although this algorithm audio is optimized on MS General MIDI sound, however the windows general MIDI never run properly on fast notes like this.
