@@ -13,7 +13,7 @@ We can do this in several steps:
 * Assume that the volume of the piano key is `v_i` at the key `i`.
 * Get the fourier feature from the sample file `f(i, omega)`, where `omega` is the frequency (this project is in `./src/samples` folder; MS General MIDI piano sound).
 * Use the least square method to make sure that the fourier of target audio pieces largely close to the combination of fourier of samples; namely the synthesized sound is `SUM` of `v_i*f(i, omega)` with index `i`, the fourier of original audio at position `t` is `a(t,omega)`; then try to minimize `(a(t, omega)-SUM(v_i*f(i, omega), i))^2` for all `omega`s: 
-```
+```javascript
 polynomial([v_i]) = SUM(omega) {
   synth_sound(omega) = SUM(i) {v_i*f(i,omega)};
   return (a(t, omega) - synth_sound(omega))^2;
@@ -26,11 +26,17 @@ Notice: in these steps, we should set the threashold for fourier `f(i, omega)` a
 ## Demo
 ### Count
 Voice: "one, two, three, four, five, six, seven, eight, nine, ten".
+
 [Original file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/src/count.wav)
+
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/count.mid)
+
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/count%20render.ogg)
 ### Love
 Voice: "I love daddy".
+
 [Original file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/src/love.wav)
+
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love.mid)
+
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love%20render.ogg)
