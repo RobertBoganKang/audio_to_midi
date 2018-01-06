@@ -1,0 +1,135 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4173,        127]
+NotebookOptionsPosition[      3137,        101]
+NotebookOutlinePosition[      3476,        116]
+CellTagsIndexPosition[      3433,        113]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Sound To MIDI", "Title",
+ CellChangeTimes->{{3.72423697752954*^9, 
+  3.724236980768797*^9}},ExpressionUUID->"a43a19a4-7ca6-4bf5-ae9f-\
+f0af9e2dbd33"],
+
+Cell[CellGroupData[{
+
+Cell["Initialize", "Section",
+ CellChangeTimes->{{3.7242369850329103`*^9, 
+  3.724236986739699*^9}},ExpressionUUID->"b576f251-0f5c-4896-8951-\
+6dd20d575cf9"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<sound2MIDI.wl\>\""}], 
+   "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7242369435905533`*^9, 
+  3.724236972006667*^9}},ExpressionUUID->"c790396e-eae7-417e-a876-\
+60dd64711e40"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Test", "Section",
+ CellChangeTimes->{{3.7242369920639973`*^9, 
+  3.724236992527334*^9}},ExpressionUUID->"bd2b6abc-77f7-45e1-bb68-\
+6881966e1b3d"],
+
+Cell[BoxData[
+ RowBox[{"sound2MIDI", "[", 
+  RowBox[{
+   RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<count.wav\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.724233065159686*^9, 3.7242330670327044`*^9}, {
+  3.724236893649767*^9, 
+  3.7242368995680103`*^9}},ExpressionUUID->"b06dadfa-fe8c-4f9d-86b0-\
+4ff00a634758"],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<count.mid\>\""}], ",", 
+   RowBox[{"Sound", "[", "answer", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.724221423934223*^9, 3.724221427433063*^9}, 
+   3.724221900560061*^9, {3.724221958397561*^9, 3.72422199773787*^9}, {
+   3.7242238263216248`*^9, 3.724223827131563*^9}, 3.724233154330037*^9, {
+   3.724236096022038*^9, 3.7242360969118977`*^9}, {3.7242363559521523`*^9, 
+   3.724236360678018*^9}},ExpressionUUID->"dc283853-8f5d-4683-b6fb-\
+62fe8969e0e2"],
+
+Cell[BoxData[
+ RowBox[{"sound2MIDI", "[", 
+  RowBox[{
+   RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<love.wav\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.724233065159686*^9, 3.7242330670327044`*^9}, 
+   3.724233699756654*^9, 3.724235427772336*^9, {3.724236903594323*^9, 
+   3.724236908565641*^9}},ExpressionUUID->"7d42f962-b36c-45be-8b11-\
+73c6d16293a5"],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<love.mid\>\""}], ",", 
+   
+   RowBox[{"Sound", "[", "answer", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.724236382899992*^9, 
+  3.7242363866065397`*^9}},ExpressionUUID->"3b246c59-7b3d-4dd6-a70e-\
+59b53413327b"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 958},
+WindowMargins->{{232, Automatic}, {9, Automatic}},
+FrontEndVersion->"11.2 for Linux x86 (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 155, 3, 98, "Title",ExpressionUUID->"a43a19a4-7ca6-4bf5-ae9f-f0af9e2dbd33"],
+Cell[CellGroupData[{
+Cell[760, 29, 157, 3, 68, "Section",ExpressionUUID->"b576f251-0f5c-4896-8951-6dd20d575cf9"],
+Cell[920, 34, 389, 11, 57, "Input",ExpressionUUID->"c790396e-eae7-417e-a876-60dd64711e40"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1346, 50, 151, 3, 68, "Section",ExpressionUUID->"bd2b6abc-77f7-45e1-bb68-6881966e1b3d"],
+Cell[1500, 55, 325, 8, 31, "Input",ExpressionUUID->"b06dadfa-fe8c-4f9d-86b0-4ff00a634758"],
+Cell[1828, 65, 574, 11, 31, "Input",ExpressionUUID->"dc283853-8f5d-4683-b6fb-62fe8969e0e2"],
+Cell[2405, 78, 368, 8, 31, "Input",ExpressionUUID->"7d42f962-b36c-45be-8b11-73c6d16293a5"],
+Cell[2776, 88, 333, 9, 31, "Input",ExpressionUUID->"3b246c59-7b3d-4dd6-a70e-59b53413327b"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
