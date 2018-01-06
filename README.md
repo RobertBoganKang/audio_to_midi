@@ -40,3 +40,17 @@ Voice: "I love daddy".
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love.mid)
 
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love%20render.ogg)
+### Song
+Song: You Raise Me Up
+
+[Original file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song%20original.ogg)
+
+[MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song.mid)
+
+[Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song%20render.ogg)
+#### Videos
+[Youtube](https://www.youtube.com/watch?v=ZVt8LEBRmn8&feature=youtu.be)
+
+[YouKu](http://v.youku.com/v_show/id_XMzI5NzQyMjUwNA==.html)
+## Other Info
+This project seems time consuming in calculation not coding (rendering time more than coding) and it is not so useful, I am planning stop developing it.
