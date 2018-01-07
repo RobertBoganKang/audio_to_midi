@@ -2,9 +2,16 @@
 
 sound2MIDI[file_]:=Module[{sampletime,threashold,intervaltime,samplerate,cutresultlow,modelvalue,data,sampledata,fourier,audiodata,audiofourier,fourierdata,keyresult,key,audiomodel,start,i,result,audioendingtime,tolerance,resultsounddata},
 (*system parameters*)
-sampletime=.1;threashold=.01;intervaltime=0.05;samplerate=44100;cutresultlow=0.0001;
+(*sample time for fourier analysis*)sampletime=.1;
+(*threashold for valid fourier values*)threashold=.01;
+(*time division of analysis for audio*)intervaltime=0.05;
+(*samplerate: only 44100 is supported*)samplerate=44100;
+(*cut the underflow for generating MIDI*)cutresultlow=0.0001;
 (*build model function from samples*)
-If[!ListQ[modelfunction],modelfunction=Total[ParallelTable[data=Import[NotebookDirectory[]<>"samples/"<>ToString[i]<>".wav","Data"];samplerate=Import[NotebookDirectory[]<>"samples/"<>ToString[i]<>".wav","Sound"][[1,2]];sampledata=First[data][[;;samplerate*sampletime]];
+If[!ListQ[modelfunction],
+(*model function for samples to build polynomial function*)
+modelfunction=Total[Table[data=Import[NotebookDirectory[]<>"samples/"<>ToString[i]<>".wav","Data"];
+sampledata=First[data][[;;samplerate*sampletime]];
 fourier=Abs[Fourier[sampledata][[;;Round[sampletime*samplerate/2]]]];
 Do[If[fourier[[i]]<threashold,fourier[[i]]=0],{i,Length[fourier]}];
 fourier*ToExpression["x"<>ToString[i]],{i,88}]];];
@@ -26,5 +33,8 @@ AppendTo[resultsounddata,SoundNote[key-40,{(start-1)*intervaltime,(i-1)*interval
 (*else*)
 ];,
 start=i];i++],{key,88}];
+(*add default beep*)
 AppendTo[resultsounddata,SoundNote[0,{audioendingtime+.1,audioendingtime+1.6},SoundVolume->1/4]];
-answer=resultsounddata;Export[NotebookDirectory[]<>"test.mid",Sound[resultsounddata]];Sound[resultsounddata]]
+answer=resultsounddata;
+(*backup midi*)Export[NotebookDirectory[]<>"test.mid",Sound[resultsounddata]];
+Sound[resultsounddata]]
