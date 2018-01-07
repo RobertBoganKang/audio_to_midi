@@ -21,7 +21,7 @@ polynomial([v_i]) = SUM(omega) {
 };
 MINIMIZE(polynomial([v_i])) // get all v_i numbers as volume for all piano keys
 ```
-* For each `v_i`, if the values are too close with each other, combine them as one note.
+* For each `v_i`, if the values are too close with each other, combine them as one note on `v_i` ~ `t` domain for each key `i`.
 * Generate MIDI file.
 Notice: in these steps, we should set the threashold for fourier `f(i, omega)` and volume `v_i` to avoid calculations, since the volume is too low that we cannot hear it.
 ## Other Info
