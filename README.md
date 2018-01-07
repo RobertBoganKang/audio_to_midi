@@ -8,7 +8,7 @@ This is an optimization problem.
 ### Assumption
 * Assume that the sound quality will not change when volume changes.
 * There is no physical resonance of piano strings.
-* Sound Magnitude is has linear relationship with piano weight of keys.
+* Sound volume is has linear relationship with piano weight of keys.
 ### Steps
 We can do this in several steps:
 * Let volume of the piano key is `v_i` at the key `i`.
