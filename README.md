@@ -27,7 +27,7 @@ Notice: in these steps, we should set the threashold for fourier `f(i, omega)` a
 ## Other Info
 This project seems time consuming in calculation not coding (rendering time more than coding) and it is not so useful, I am planning stop developing it.
 ### Deficiencies 
-Only samplerate at 44100 is supported.
+Only sample rate at 44100 is supported. If other sample rate, change parameters in system parameter section and make sure that the sample rate at samples and audio is the same. 
 ### Possible Research Direction
 * Set the weight function in frequency domain to raise the importance of some part of frequencies.
 * Research on MIDI weight parameter value to volume value to increase the accuracy of model. 
