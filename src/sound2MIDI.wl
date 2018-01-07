@@ -5,8 +5,9 @@ sound2MIDI[file_]:=Module[{sampletime,threashold,intervaltime,samplerate,cutresu
 (*sample time for fourier analysis*)sampletime=.1;
 (*threashold for valid fourier values*)threashold=.01;
 (*time division of analysis for audio*)intervaltime=0.05;
-(*samplerate: only 44100 is supported*)samplerate=44100;
-(*cut the underflow for generating MIDI*)cutresultlow=0.0001;
+(*samplerate: only 44100 is supported [both samples and audio]*)samplerate=44100;
+(*cut the fourier underflow*)cutresultlow=0.0001;
+(*cut the underflow for generating MIDI*)tolerance=0.01;
 (*build model function from samples*)
 If[!ListQ[modelfunction],
 (*model function for samples to build polynomial function*)
@@ -25,7 +26,7 @@ result=ParallelTable[fourierdata=audiomodel[[i]];modelvalue=FindMinimum[{Expand[
 (*generate sound*)
 (*resultsounddata=Flatten[Table[If[result[[i,j]]<cutresultlow,{},SoundNote[j-40,{(i-1)*intervaltime,i*intervaltime},SoundVolume->result[[i,j]]]],{i,Length[result]},{j,88}]];Sound[resultsounddata]*)
 keyresult=Transpose@result;
-resultsounddata={};tolerance=0.01;
+resultsounddata={};
 Do[start=i=2;
 While[i<=Length[keyresult[[key]]],
 If[keyresult[[key,i]]>cutresultlow,If[Abs[keyresult[[key,i]]-keyresult[[key,i-1]]]>tolerance,
