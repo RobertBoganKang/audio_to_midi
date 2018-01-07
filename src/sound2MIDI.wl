@@ -4,11 +4,11 @@ sound2MIDI[file_]:=Module[{sampletime,threashold,intervaltime,samplerate,cutresu
 (*system parameters*)
 sampletime=.1;threashold=.01;intervaltime=0.05;samplerate=44100;cutresultlow=0.0001;
 (*build model function from samples*)
-If[!ListQ[modelfunction],modelfunction=Total[Table[data=Import[NotebookDirectory[]<>"samples/"<>ToString[i]<>".wav","Data"];samplerate=Import[NotebookDirectory[]<>"samples/"<>ToString[i]<>".wav","Sound"][[1,2]];sampledata=First[data][[;;samplerate*sampletime]];
+If[!ListQ[modelfunction],modelfunction=Total[ParallelTable[data=Import[NotebookDirectory[]<>"samples/"<>ToString[i]<>".wav","Data"];samplerate=Import[NotebookDirectory[]<>"samples/"<>ToString[i]<>".wav","Sound"][[1,2]];sampledata=First[data][[;;samplerate*sampletime]];
 fourier=Abs[Fourier[sampledata][[;;Round[sampletime*samplerate/2]]]];
 Do[If[fourier[[i]]<threashold,fourier[[i]]=0],{i,Length[fourier]}];
 fourier*ToExpression["x"<>ToString[i]],{i,88}]];];
-(*audio data*)audiodata=Import[file,"Data"];audiodata=audiodata[[1]];audiodata=LowpassFilter[audiodata,.5];
+(*audio data*)audiodata=Import[file,"Data"];audiodata=audiodata[[1]];
 audiodata/=Max[audiodata];
 audioendingtime=Length[audiodata]/samplerate*1.;
 (*create fourier slices for audio*)audiomodel=ParallelTable[audiofourier=Abs[Fourier[audiodata[[Round[j*intervaltime*samplerate]+1;;Round[j*intervaltime*samplerate]+1+sampletime*samplerate]]][[;;Round[sampletime*samplerate/2]]]];
