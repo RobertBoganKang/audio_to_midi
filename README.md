@@ -13,10 +13,10 @@ This is an optimization problem.
 We can do this in several steps:
 * Let volume of the piano key is `v_i` at the key `i`.
 * Get the fourier feature from the sample file `f(i, omega)`, where `omega` is the frequency (this project is in `./src/samples` folder; MS General MIDI piano sound).
-* Use the least square method to make sure that the fourier of target audio pieces largely close to the combination of fourier of samples (fourier has linear rule: `F(v_1 * wave1(t) + v_2 * wave2(t)) = v_1 * F(wave1(t)) + v_2 * F(wave2(t))`); namely the synthesized sound is `SUM` of `v_i * f(i, omega)` with index `i`, the fourier of original audio at position `t` is `a(t, omega)`; then try to minimize `(a(t, omega)-SUM(v_i * f(i, omega), i)) ^ 2` for all `omega`s: 
+* Use the least square method to make sure that the fourier of target audio pieces largely close to the combination of fourier of samples (fourier has linear rule: `F(v_1 * wave1(t) + v_2 * wave2(t)) = v_1 * F(wave1(t)) + v_2 * F(wave2(t))`); namely the synthesized sound is `SUM` of `v_i * f(i, omega)` with index `i`, the fourier of original audio at position `t` is `a(t, omega)`; then try to minimize `(a(t, omega)-SUM(v_i * f(i, omega), i)) ^ 2` for all `omega`(s): 
 ```javascript
 polynomial([v_i]) = SUM(omega) {
-  synth_sound(omega) = SUM(i) {v_i*f(i, omega)};
+  synth_sound(omega) = SUM(i) {v_i * f(i, omega)};
   return (a(t, omega) - synth_sound(omega)) ^ 2;
 };
 MINIMIZE(polynomial([v_i])) // get all v_i numbers as volume for all piano keys
@@ -43,6 +43,9 @@ Song: You Raise Me Up
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song.mid)
 /
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song%20render.ogg)
+(
+[2](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song%20(generalMIDI%20sound).ogg)
+)
 #### Videos
 [Youtube](https://www.youtube.com/watch?v=ZVt8LEBRmn8&feature=youtu.be)
 /
@@ -55,6 +58,9 @@ Voice: "one, two, three, four, five, six, seven, eight, nine, ten".
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/count.mid)
 /
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/count%20render.ogg)
+(
+[2](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/count%20(generalMIDI%20sound).ogg)
+)
 ### Love
 Voice: "I love daddy".
 
@@ -63,3 +69,6 @@ Voice: "I love daddy".
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love.mid)
 /
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love%20render.ogg)
+(
+[2](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love%20(generalMIDI%20sound).ogg)
+)
