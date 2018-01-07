@@ -23,6 +23,8 @@ MINIMIZE(polynomial([v_i])) // get all v_i numbers as volume for all piano keys
 * For each `v_i`, if the values are too close with each other, combine them as one note.
 * Generate MIDI file.
 Notice: in these steps, we should set the threashold for fourier `f(i, omega)` and volume `v_i` to avoid calculations, since the volume is too low that we cannot hear it.
+## Deficiencies 
+Only samplerate at 44100 is supported.
 ## Demo
 ### Count
 Voice: "one, two, three, four, five, six, seven, eight, nine, ten".
