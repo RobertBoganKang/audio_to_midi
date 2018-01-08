@@ -23,33 +23,29 @@ MINIMIZE(polynomial([v_i])) // get all v_i numbers as volume for all piano keys
 ```
 * For each `v_i`, if the values are too close with each other, combine them as one note on `v_i` ~ `t` domain for each key `i`.
 * Generate MIDI file.
-Notice: in these steps, we should set the threashold for fourier `f(i, omega)` and volume `v_i` to avoid calculations, since the volume is too low that we cannot hear it.
+Notice: in these steps, we should set the threashold for fourier `f(i, omega)` and volume `v_i` to avoid calculations, since the volume is too low that we cannot hear it. In the test, we cannot hear the sound at almost `10^3` ~ `10^-4`, so set the threas hold there.
 ## Other Info
 This project seems time consuming in calculation not coding (rendering time more than coding) and it is not so useful, I am planning stop developing it.
 ### Deficiencies 
 Only sample rate at 44100 Hz is supported. If other sample rate, change parameters in system parameter section and make sure that the sample rate at samples and audio is the same. 
 ### Possible Research Direction
-* Set the weight function in frequency domain to raise the importance of some part of frequencies.
-* Research on MIDI weight parameter value to volume value to increase the accuracy of model. 
-* Music note combination algorithm could be improved. 
+* Set the weight function in frequency domain to raise the importance of some part of frequencies; however, in reality the ear is sensitive to the sound volume at logarithm level, it is almost impossible to optimize such large functions with complicated forms; in addition, the auditory mask is also a factor will affect; overall, the least square method is most easy one to solve.
+* Research on MIDI weight parameter value to volume value to increase the accuracy of model.
 * We could set the starting point of `MINIMIZE` function as the last value to get the similar value at that state.
 * Although this algorithm audio is optimized on MS General MIDI sound, however the windows general MIDI never run properly on fast notes like this.
 ## Demo
 ### Song
-Song: You Raise Me Up
+Song: You Raise Me Up (calculate for 2 almost hours with 8 kernel CPU)
 
 [Original file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song%20original.ogg)
 /
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song.mid)
 /
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song%20render.ogg)
-(
-[2](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/song%20(generalMIDI%20sound).ogg)
-)
 #### Videos
-[Youtube](https://www.youtube.com/watch?v=ZVt8LEBRmn8&feature=youtu.be)
+[Youtube](https://www.youtube.com/watch?v=qsCU_wfJiNk)
 /
-[YouKu](http://v.youku.com/v_show/id_XMzI5NzQyMjUwNA==.html)
+[YouKu](http://v.youku.com/v_show/id_XMzI5OTgwOTQwNA==.html?spm=a2h3j.8428770.3416059.1)
 ### Count
 Voice: "one, two, three, four, five, six, seven, eight, nine, ten".
 
@@ -58,9 +54,6 @@ Voice: "one, two, three, four, five, six, seven, eight, nine, ten".
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/count.mid)
 /
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/count%20render.ogg)
-(
-[2](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/count%20(generalMIDI%20sound).ogg)
-)
 ### Love
 Voice: "I love daddy".
 
@@ -69,6 +62,3 @@ Voice: "I love daddy".
 [MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love.mid)
 /
 [Rendered MIDI file](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love%20render.ogg)
-(
-[2](https://github.com/RobertBoganKang/audio_to_midi/blob/master/demo/love%20(generalMIDI%20sound).ogg)
-)
