@@ -12,8 +12,8 @@ This is an optimization problem.
 ### Steps
 We can do this in several steps:
 * Let volume of the piano key is `v_i` at the key `i` (`v_i` is positive real number).
-* Get the fourier feature from the sample file `f(i, omega)`, where `omega` is the frequency (this project is in `./src/samples` folder; MS General MIDI piano sound).
-* Use the least square method to make sure that the fourier of target audio pieces largely close to the combination of fourier of samples (fourier has linear rule: `F(v_1 * wave_1(t) + v_2 * wave_2(t)) = v_1 * F(wave1(t)) + v_2 * F(wave2(t))`; where `F` is fourier transformation); namely the synthesized sound is `SUM` of `v_i * f(i, omega)` with index `i` (where `f(i, omega) = F(wave_i(t_sample))`), the fourier of original audio at position `t` is `a(t, omega)`; then try to minimize `(a(t, omega) - SUM(v_i * f(i, omega), i)) ^ 2` (quadratic polynomial: a much easier form to optimize) for all `omega`(s): 
+* Get the fourier feature from the sample file `f(i, omega)` (for this project is in `./src/samples` folder; MS General MIDI piano sound).
+* Use the least square method to make sure that the fourier of target audio pieces largely close to the combination of fourier of samples (fourier has linear rule: `F(v_1 * wave_1(t) + v_2 * wave_2(t)) = v_1 * F(wave1(t)) + v_2 * F(wave2(t))`; where `F` is fourier transformation); namely the synthesized sound is `SUM` of `v_i * f(i, omega)` with index `i` (where `f(i, omega) = F(wave_i(t_sample))`, `omega` is the frequency), the fourier of original audio at position `t` is `a(t, omega)`; then try to minimize `(a(t, omega) - SUM(v_i * f(i, omega), i)) ^ 2` (quadratic polynomial: a much easier form to optimize) for all `omega`(s): 
 ```javascript
 polynomial([v_i]) = SUM(omega) {
   synth_sound(omega) = SUM(i) {v_i * f(i, omega)};
